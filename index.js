@@ -16,6 +16,8 @@ req.onload = function() {
       <Report />,
       document.getElementById('content')
     );
+  } else { // Try Again
+    getOutput(latestType);
   }
 };
 function getOutput(reqtype) {
