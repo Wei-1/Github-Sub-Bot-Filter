@@ -5,29 +5,51 @@ console.log(uid);
 
 var data = {"followers":[],"following":[]}
 var req = new XMLHttpRequest();
-var latestType = "followers"
+var latestType = "followers";
+var countType = 1;
+var countIndex = 1;
 req.onload = function() {
   if (this.status >= 200 && this.status < 400) {
     // Success!
     var tmp = JSON.parse(this.response);
     console.log(tmp);
-    data[latestType] = tmp;
-    ReactDOM.render(
-      <Report />,
-      document.getElementById('content')
-    );
+    if(latestType == "user") {
+      data[latestType] = tmp;
+    } else {
+      data[latestType] = data[latestType].concat(tmp);
+    }
+    if(latestType == "user") {
+      setTimeout(function() {apiCall("followers");}, 100);
+    } else if(countIndex < countType) {
+      countIndex += 1;
+      apiCall(latestType);
+    } else if(latestType == "followers") {
+      countIndex = 1;
+      setTimeout(function() {apiCall("following");}, 100);
+    } else if(latestType == "following" && countIndex == countType) {
+      ReactDOM.render(
+        <Report />, document.getElementById('content')
+      );
+    }
   } else { // Try Again
-    getOutput(latestType);
+    apiCall(latestType);
   }
 };
-function getOutput(reqtype) {
+function apiCall(reqtype) {
   latestType = reqtype;
-  req.open('GET', 'https://api.github.com/users/' +
-    uid + '/' + reqtype + '?per_page=100', true);
+  if(latestType == "user") {
+    req.open('GET', 'https://api.github.com/users/' + uid, true);
+  } else {
+    var cnt = data['user'][latestType];
+    countType = parseInt(Math.ceil(cnt / 100.0), 10);
+    console.log(latestType + " " + countType + " " + countIndex);
+    req.open('GET', 'https://api.github.com/users/' +
+      uid + '/' + latestType + '?page=' + countIndex +
+      '&per_page=100', true);
+  }
   req.send();
 }
-getOutput('followers');
-setTimeout(function() {getOutput('following');}, 1000);
+apiCall("user");
 
 function getColor(check) {
   if (check) return {color:'#0f0'};
