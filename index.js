@@ -8,6 +8,7 @@ var req = new XMLHttpRequest();
 var latestType = "followers";
 var countType = 1;
 var countIndex = 1;
+var retryTime = 100;
 req.onload = function() {
   if (this.status >= 200 && this.status < 400) {
     // Success!
@@ -32,7 +33,10 @@ req.onload = function() {
       );
     }
   } else { // Try Again
-    apiCall(latestType);
+    setTimeout(function() {
+      retryTime *= 4;
+      apiCall(latestType);
+    }, retryTime);
   }
 };
 function apiCall(reqtype) {
