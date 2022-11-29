@@ -60,19 +60,26 @@ function getColor(check) {
   else return {color:'#f00'};
 }
 function checkFollow(id) {
-  var check = false
+  let check = false
   data['followers'].forEach(user => {
     if (user.id == id) check = true;
   });
+  return check;
+}
+function renderFollow(id) {
+  let check = checkFollow(id);
   return <h4 style={getColor(check)}> {check + ""} </h4>;
 }
+function compareFollowing(a, b) {
+  return checkFollow(a.id) - checkFollow(b.id);
+}
 function Report() {
-  var stats = data['following'].map(function(user, index) {
+  var stats = data['following'].sort(compareFollowing).map(function(user, index) {
     return (
       <tr>
         <td><img src={user.avatar_url} width="20" /></td>
         <td><a href={user.html_url}><h4> {user.login} </h4></a></td>
-        <td> {checkFollow(user.id)} </td>
+        <td> {renderFollow(user.id)} </td>
       </tr>
     );
   }, this);
