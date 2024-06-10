@@ -25,9 +25,7 @@ function dataOrganization() {
   });
   data['following'].forEach(user => {
     allUserObjs[user.id] = user;
-    if(bots.includes(user.login)) {
-      allUserChecks[user.id] = 2;
-    } else if(orgs.includes(user.login)) {
+    if(orgs.includes(user.login)) {
       allUserChecks[user.id] = 4;
     } else if(allUserChecks.hasOwnProperty(user.id)) {
       allUserChecks[user.id] = 3;
