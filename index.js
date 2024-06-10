@@ -3,16 +3,50 @@ const uid = (params.get("uid") === undefined || params.get("uid") == null) ?
   "Wei-1" : params.get("uid");
 console.log(uid);
 
-var data = {"followers":[],"following":[]}
-var req = new XMLHttpRequest();
-var latestType = "followers";
-var countType = 1;
-var countIndex = 1;
-var retryTime = 100;
+let renderMapping = {
+  0: "Following not Follower",
+  1: "Follower not Following",
+  2: "Bot",
+  3: "Mutual Follow",
+  4: "Organization"
+};
+let orgs = ["OpenLive3D"];
+let bots = ["vjanz", "imaarov"];
+let allUserChecks = {};
+let allUserObjs = {};
+function dataOrganization() {
+  data['followers'].forEach(user => {
+    allUserObjs[user.id] = user;
+    if(bots.includes(user.login)) {
+      allUserChecks[user.id] = 2;
+    } else {
+      allUserChecks[user.id] = 1;
+    }
+  });
+  data['following'].forEach(user => {
+    allUserObjs[user.id] = user;
+    if(bots.includes(user.login)) {
+      allUserChecks[user.id] = 2;
+    } else if(orgs.includes(user.login)) {
+      allUserChecks[user.id] = 4;
+    } else if(allUserChecks.hasOwnProperty(user.id)) {
+      allUserChecks[user.id] = 3;
+    } else {
+      allUserChecks[user.id] = 0;
+    }
+  });
+}
+
+let data = {"followers":[],"following":[]}
+let req = new XMLHttpRequest();
+let latestType = "followers";
+let countType = 1;
+let countIndex = 1;
+let retryTime = 100;
 req.onload = function() {
   if (this.status >= 200 && this.status < 400) {
     // Success!
-    var tmp = JSON.parse(this.response);
+    let tmp = JSON.parse(this.response);
     console.log(tmp);
     if(latestType == "user") {
       data[latestType] = tmp;
@@ -28,6 +62,7 @@ req.onload = function() {
       countIndex = 1;
       setTimeout(function() {apiCall("following");}, 100);
     } else if(latestType == "following" && countIndex == countType) {
+      dataOrganization();
       ReactDOM.render(
         <Report />, document.getElementById('content')
       );
@@ -44,7 +79,7 @@ function apiCall(reqtype) {
   if(latestType == "user") {
     req.open('GET', 'https://api.github.com/users/' + uid, true);
   } else {
-    var cnt = data['user'][latestType];
+    let cnt = data['user'][latestType];
     countType = parseInt(Math.ceil(cnt / 100.0), 10);
     console.log(latestType + " " + countType + " " + countIndex);
     req.open('GET', 'https://api.github.com/users/' +
@@ -56,25 +91,31 @@ function apiCall(reqtype) {
 apiCall("user");
 
 function getColor(check) {
-  if (check) return {color:'#0f0'};
-  else return {color:'#f00'};
-}
-function checkFollow(id) {
-  let check = false
-  data['followers'].forEach(user => {
-    if (user.id == id) check = true;
-  });
-  return check;
+  switch (check) {
+    case 0:
+      return {color:'#f00'};
+    case 1:
+      return {color:'#00f'};
+    case 2:
+      return {color:'#888'};
+    case 3:
+      return {color:'#0f0'};
+    case 4:
+      return {color:'#ff0'};
+    default:
+      return {color:'#000'};
+  }
 }
 function renderFollow(id) {
-  let check = checkFollow(id);
-  return <h4 style={getColor(check)}> {check + ""} </h4>;
+  let check = allUserChecks[id]
+  return <h4 style={getColor(check)}> {renderMapping[check]} </h4>;
 }
 function compareFollowing(a, b) {
-  return checkFollow(a.id) - checkFollow(b.id);
+  return allUserChecks[a] - allUserChecks[b];
 }
 function Report() {
-  var stats = data['following'].sort(compareFollowing).map(function(user, index) {
+  let stats = Object.keys(allUserObjs).sort(compareFollowing).map(function(id, index) {
+    let user = allUserObjs[id];
     return (
       <tr>
         <td><img src={user.avatar_url} width="20" /></td>
