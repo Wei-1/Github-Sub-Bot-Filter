@@ -11,7 +11,7 @@ let renderMapping = {
   4: "Organization"
 };
 let orgs = ["OpenLive3D"];
-let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire"];
+let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsparsh10", "sreya-satheesh"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
