@@ -12,7 +12,7 @@ let renderMapping = {
 };
 let orgs = ["OpenLive3D"];
 let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsparsh10", "sreya-satheesh",
-            "blocage"];
+            "blocage", "x3ric", "Ashishcxz"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
