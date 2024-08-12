@@ -16,7 +16,7 @@ let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsp
             "md-sazzadul-islam", "kamil-lm", "MisterRust", "smile1130", "sleinkaraman", "rabnail",
             "MuhammadRayyan16", "vintagewang", "KiLJ4EdeN", "qpeckin", "JyaburaniTech", "bambi-bf",
             "sonjibony", "l950x", "iloveryuux", "ammadsaleem18", "OracleBrain", "WhityGhost",
-            "Ikuzweshema"];
+            "Ikuzweshema", "skeleton1009"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
