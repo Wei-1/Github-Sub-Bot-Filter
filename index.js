@@ -18,7 +18,7 @@ let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsp
             "sonjibony", "l950x", "iloveryuux", "ammadsaleem18", "OracleBrain", "WhityGhost",
             "Ikuzweshema", "skeleton1009", "xmoohad", "rairoshni2005", "Tomiwa-Ot", "razaafazal",
             "WhitePoodleMoth", "rizwansammo", "khanovico", "madeindex", "despicableGruu", "wizasol",
-            "PremChapagain", "ekrishnachaitanya2004"];
+            "PremChapagain", "ekrishnachaitanya2004", "renominated"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
