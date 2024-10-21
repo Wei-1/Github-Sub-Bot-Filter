@@ -19,7 +19,8 @@ let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsp
             "Ikuzweshema", "skeleton1009", "xmoohad", "rairoshni2005", "Tomiwa-Ot", "razaafazal",
             "WhitePoodleMoth", "rizwansammo", "khanovico", "madeindex", "despicableGruu", "wizasol",
             "PremChapagain", "ekrishnachaitanya2004", "renominated", "rainbowdev1359",
-            "YoussefMoHlemyAlpha", "Keviiiiiiiin", "kentaurse", "topsecretagent007"];
+            "YoussefMoHlemyAlpha", "Keviiiiiiiin", "kentaurse", "topsecretagent007", "xopaz",
+            "fairsky0201"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
