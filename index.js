@@ -23,7 +23,8 @@ let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsp
             "fairsky0201", "CelaDaniel", "BusraEcemSakar", "formidablae", "Tohidkhan6332",
             "meliksahyorulmazlar", "AZIZEMESR", "mooosakhan", "fIuffy", "CombiningIdeas",
             "isaka-james", "kmrchandan006", "edu-amr", "lkotlarenko", "luckysw0rd", "Gor-Hoveyan",
-            "byigitt", "Tvenus", "Rez4-3yz", "sabeerbikba", "shodanio", "Ahakimxoor"];
+            "byigitt", "Tvenus", "Rez4-3yz", "sabeerbikba", "shodanio", "Ahakimxoor", "miasif",
+            "ilyesw"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
