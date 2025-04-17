@@ -30,7 +30,7 @@ let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsp
             "mbahomaid", "jahidnation", "bencheayoub", "ipqwery", "TrungpdtE", "mehrezbey",
             "KevinTrinh1227", "hamednourzaei", "mawg0ud", "GitRektify", "bytexenon", "ernst-bablick",
             "Shubh2-0", "Shamim-Al-Mamun", "phantom-98", "jeffersongoncalves", "ashishkumar30",
-            "mahmudnibir", "CodeEvolv", "0vm"];
+            "mahmudnibir", "CodeEvolv", "0vm", "aniketdobriyal", "AbMosawerWadan", "kelvin1V10"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
