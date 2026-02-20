@@ -3,14 +3,8 @@ const uid = (params.get("uid") === undefined || params.get("uid") == null) ?
   "Wei-1" : params.get("uid");
 console.log(uid);
 
-let renderMapping = {
-  0: "Following not Follower",
-  1: "Follower not Following",
-  2: "Bot",
-  3: "Mutual Follow",
-  4: "Organization"
-};
 let orgs = ["OpenLive3D"];
+let pris = ["okerun", "sphinxzerd", "Brian342"];
 let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsparsh10", "sreya-satheesh",
             "blocage", "x3ric", "Ashishcxz", "nathalylorena", "SysAdminHeal", "shahradelahi",
             "md-sazzadul-islam", "kamil-lm", "MisterRust", "smile1130", "sleinkaraman", "rabnail",
@@ -48,7 +42,7 @@ let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsp
             "Mohsen-malekifard", "canan777", "yeahdeth", "giladfuchs", "hexarch", "meigga-hsu",
             "hexddine", "alhamrizvi-cloud", "beytekindavut", "diorwave", "GXCoder78", "mikechiloane",
             "wasxy47", "hosseinhezami", "MarkRizzn", "nxxt3d", "tldrwtf", "AnonimusShamshiAlex",
-            "BitMorphX", "goldhorsedev0101"];
+            "BitMorphX", "goldhorsedev0101", "aspirinoo", "hamse122"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
@@ -125,6 +119,13 @@ function apiCall(reqtype) {
 }
 apiCall("user");
 
+let getText = {
+  0: "Following not Follower",
+  1: "Follower not Following",
+  2: "Bot",
+  3: "Mutual Follow",
+  4: "Organization"
+};
 function getColor(check) {
   switch (check) {
     case 0:
@@ -141,9 +142,12 @@ function getColor(check) {
       return {color:'#000'};
   }
 }
+function renderMapping(id, check) {
+  return getText[check] + ["", " - (Private)"][pris.includes(id)];
+}
 function renderFollow(id) {
   let check = allUserChecks[id]
-  return <h4 style={getColor(check)}> {renderMapping[check]} </h4>;
+  return <h4 style={getColor(check)}> {renderMapping(id, check)} </h4>;
 }
 function compareFollowing(a, b) {
   return allUserChecks[a] - allUserChecks[b];
