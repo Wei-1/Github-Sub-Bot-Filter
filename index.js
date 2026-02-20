@@ -61,7 +61,7 @@ function dataOrganization() {
     } else if(allUserChecks.hasOwnProperty(user.id)) {
       allUserChecks[user.id] = 3;
     } else {
-      [user.id] = 0;
+      allUserChecks[user.id] = 0;
     }
   });
 }
