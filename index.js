@@ -61,7 +61,7 @@ function dataOrganization() {
     } else if(allUserChecks.hasOwnProperty(user.id)) {
       allUserChecks[user.id] = 3;
     } else {
-      allUserChecks[user.id] = 0;
+      [user.id] = 0;
     }
   });
 }
@@ -142,12 +142,12 @@ function getColor(check) {
       return {color:'#000'};
   }
 }
-function renderMapping(id, check) {
-  return getText[check] + (pris.includes(id) ? "" : " (Private)");
+function getPrivate(id) {
+  return pris.includes(id) ? " (Private)" : "";
 }
-function renderFollow(id) {
-  let check = allUserChecks[id]
-  return <h4 style={getColor(check)}> {renderMapping(id, check)} </h4>;
+function renderFollow(user) {
+  let check = allUserChecks[user.id]
+  return <h4 style={getColor(check)}> {getText[check] + getPrivate(user.login)} </h4>;
 }
 function compareFollowing(a, b) {
   return allUserChecks[a] - allUserChecks[b];
@@ -159,7 +159,7 @@ function Report() {
       <tr>
         <td><img src={user.avatar_url} width="20" /></td>
         <td><a href={user.html_url}><h4> {user.login} </h4></a></td>
-        <td> {renderFollow(user.id)} </td>
+        <td> {renderFollow(user)} </td>
       </tr>
     );
   }, this);
