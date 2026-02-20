@@ -143,7 +143,6 @@ function getColor(check) {
   }
 }
 function renderMapping(id, check) {
-  let getPrivateText = 
   return getText[check] + (pris.includes(id) ? "" : " (Private)");
 }
 function renderFollow(id) {
