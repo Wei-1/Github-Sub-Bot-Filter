@@ -66,7 +66,7 @@ function dataOrganization() {
   });
 }
 
-let data = {"followers":[],"following":[]}
+let data = {"followers":[], "following":[]}
 let req = new XMLHttpRequest();
 let latestType = "followers";
 let countType = 1;
@@ -143,7 +143,8 @@ function getColor(check) {
   }
 }
 function renderMapping(id, check) {
-  return getText[check] + ["", " - (Private)"][pris.includes(id)];
+  let getPrivateText = 
+  return getText[check] + (pris.includes(id) ? "" : " (Private)");
 }
 function renderFollow(id) {
   let check = allUserChecks[id]
