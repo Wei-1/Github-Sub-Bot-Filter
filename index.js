@@ -4,7 +4,7 @@ const uid = (params.get("uid") === undefined || params.get("uid") == null) ?
 console.log(uid);
 
 let orgs = ["OpenLive3D"];
-let pris = ["okerun", "sphinxzerd", "Brian342"];
+let pris = ["okerun", "sphinxzerd", "Brian342", "nykoco"];
 let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsparsh10", "sreya-satheesh",
             "blocage", "x3ric", "Ashishcxz", "nathalylorena", "SysAdminHeal", "shahradelahi",
             "md-sazzadul-islam", "kamil-lm", "MisterRust", "smile1130", "sleinkaraman", "rabnail",
