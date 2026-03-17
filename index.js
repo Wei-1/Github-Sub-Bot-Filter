@@ -43,7 +43,7 @@ let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsp
             "hexddine", "alhamrizvi-cloud", "beytekindavut", "diorwave", "GXCoder78", "mikechiloane",
             "wasxy47", "hosseinhezami", "MarkRizzn", "nxxt3d", "tldrwtf", "AnonimusShamshiAlex",
             "BitMorphX", "goldhorsedev0101", "aspirinoo", "hamse122", "MENOT02", "T-rustdev", "g1f1",
-            "ragibalasad", "rtk17025"];
+            "ragibalasad", "rtk17025", "nafofrumzl", "Sam-McAlister", "ShRP69"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
