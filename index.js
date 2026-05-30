@@ -5,7 +5,8 @@ console.log(uid);
 
 let orgs = ["OpenLive3D"];
 let pris = ["okerun", "sphinxzerd", "Brian342", "nykoco", "iousuz", "REIJISAKAMAKI", "pawerrx",
-            "MRT3NNA", "l0ve-hate", "04esburxo2", "thehappydictator", "s3phikura", "DrSYLV3ON", "BERDLYY"];
+            "MRT3NNA", "l0ve-hate", "04esburxo2", "thehappydictator", "s3phikura", "DrSYLV3ON", "BERDLYY",
+            "RANDOMUS3RS", "Katarina-Zaika", "justinT-uH"];
 let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsparsh10", "sreya-satheesh",
             "blocage", "x3ric", "Ashishcxz", "nathalylorena", "SysAdminHeal", "shahradelahi",
             "md-sazzadul-islam", "kamil-lm", "MisterRust", "smile1130", "sleinkaraman", "rabnail",
@@ -47,7 +48,7 @@ let bots = ["vjanz", "imaarov", "Rafaelmdcarneiro", "yuuire", "libraiger", "itsp
             "ragibalasad", "rtk17025", "nafofrumzl", "Sam-McAlister", "ShRP69", "valebrokk",
             "luc-levesque", "sunny-days-365", "xenosie", "double-k-3033", "knoxryder323", "Ben-Scr",
             "Dev-next-gen", "jayDevCodes", "conclaveone", "BEPb", "alphacodeke", "theBappy",
-            "CreepyLewis", "DaFi-1"];
+            "CreepyLewis", "DaFi-1", "imhth", "aza-ali", "Cre4T3Tiv3", "uthumany", "ankitaaryal"];
 let allUserChecks = {};
 let allUserObjs = {};
 function dataOrganization() {
